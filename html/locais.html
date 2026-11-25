@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Redes Locais</title>
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="menu">
+        <label for="menu" class="hamb">&#9776; Menu</label>
+        <nav>
+            <a href="../index.html">Início</a><span> /</span>
+            <a class="atual" href="./locais.html">Redes Locais</a><span> /</span>
+            <a href="./serial.html">Redes de Campo</a><span> /</span>
+            <a href="./ethernet.html">Ethernet Industrial</a><span> /</span>
+            <a href="./iiot.html">IIoT</a><span> /</span>
+            <a href="./comparativo.html">Comparativo</a><span> /</span>
+            <a href="./glossario.html">Glossário</a>
+        </nav>
+    </header>
+    <main>
+
+        <h1>Redes Locais</h1>
+        <p class="sub">Ethernet, Wi-Fi e fibra óptica: as redes corporativas padrão (Bloco A).</p>
+
+        <section>
+            <h3>Ethernet (IEEE 802.3)</h3>
+            <p>A rede cabeada mais usada em escritórios e fábricas. Hoje é a base de quase todas as redes industriais modernas.</p>
+            <p class="aviso"><b>Em palavras simples:</b> É o cabo de rede do computador. Todos ligam num switch e conversam por ele. É a base de quase tudo na indústria moderna.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Par trançado UTP ou STP (Cat5e, Cat6, Cat6a) ou fibra. Conector RJ45. Topologia em estrela (switch central), podendo formar árvore ou anel com protocolos de redundância.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Pares diferenciais com transformador de isolação. 10BASE-T usa Manchester, 100BASE-TX usa 4B5B com MLT-3 e 1000BASE-T usa PAM-5. Pode alimentar o dispositivo pelo cabo com PoE (802.3af/at/bt, de 15 W a 90 W). Blindagem STP reduz EMI.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>CSMA/CD (escuta o meio e detecta colisão). Com switches em full-duplex não há colisão. Quadro: preâmbulo e SFD, MAC de destino e origem (6 bytes cada), tipo/tamanho, dados de 46 a 1500 bytes e FCS com CRC-32.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>De 10 Mbps a 10 Gbps ou mais. Até 100 m por segmento de cobre. Não é determinística no padrão: o tempo de resposta varia com o tráfego.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> controle, supervisão e gestão.</p>
+        </section>
+
+        <section>
+            <h3>Wi-Fi (IEEE 802.11)</h3>
+            <p>Rede local sem fio por radiofrequência. Dá mobilidade, mas é mais sujeita a interferência.</p>
+            <p class="aviso"><b>Em palavras simples:</b> É a internet sem fio: os dados viajam pelo ar, como um rádio. É prático, mas parede e outras redes atrapalham.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Propagação RF em 2,4 GHz, 5 GHz e 6 GHz, sem cabo nem conector (apenas antenas). Topologia infraestrutura (estrela com ponto de acesso), ad hoc ou mesh.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Modulação DSSS e OFDM/OFDMA, de BPSK até 1024-QAM ou 4096-QAM. Não há alimentação pelo meio; o ponto de acesso costuma usar PoE. Sofre com EMI, obstáculos e outras redes; a segurança vem do WPA2/WPA3.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>CSMA/CA (evita colisão, com ACK e RTS/CTS opcional). Quadro: controle, duração, até 4 endereços, sequência, corpo de dados e FCS com CRC-32.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>De 11 Mbps (802.11b) até cerca de 9,6 Gbps (802.11ax) e 46 Gbps (802.11be). Alcance de 30 a 100 m em ambiente fechado. Não determinística.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> supervisão e integração IIoT, além de AGVs e coletores móveis.</p>
+        </section>
+
+        <section>
+            <h3>Fibra Óptica (multimodo e monomodo)</h3>
+            <p>Transmite dados por pulsos de luz dentro de um fio de vidro. Imune a ruído elétrico.</p>
+            <p class="aviso"><b>Em palavras simples:</b> Em vez de eletricidade, manda luz por dentro de um fio de vidro. Não sofre com ruído elétrico e vai muito longe.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Multimodo OM1 a OM5 (núcleo de 50 ou 62,5 µm) e monomodo OS2 (núcleo de 9 µm). Conectores LC, SC, ST e MPO. Topologia ponto a ponto, estrela ou anel.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Pulsos de luz: LED ou VCSEL em 850/1300 nm no multimodo e laser em 1310/1550 nm no monomodo. Não transmite energia. Imune a EMI, isola galvanicamente e não gera faísca, o que serve para áreas classificadas.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Não define MAC próprio: usa o do protocolo que passa por ela, normalmente Ethernet em full-duplex (1000BASE-SX/LX, 10GBASE-SR/LR).</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>De 1 Gbps a 400 Gbps ou mais. Multimodo de 300 a 550 m em 10G; monomodo de 10 km a mais de 40 km sem repetidor. O determinismo depende do protocolo.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> backbone entre prédios e painéis, integração e controle em ambientes com muito ruído.</p>
+        </section>
+
+
+    </main>
+    <footer>
+        <p>Trabalho prático de Redes Industriais</p>
+    </footer>
+</body>
+</html>

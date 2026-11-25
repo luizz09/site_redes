@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Redes de Campo</title>
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="menu">
+        <label for="menu" class="hamb">&#9776; Menu</label>
+        <nav>
+            <a href="../index.html">Início</a><span> /</span>
+            <a href="./locais.html">Redes Locais</a><span> /</span>
+            <a class="atual" href="./serial.html">Redes de Campo</a><span> /</span>
+            <a href="./ethernet.html">Ethernet Industrial</a><span> /</span>
+            <a href="./iiot.html">IIoT</a><span> /</span>
+            <a href="./comparativo.html">Comparativo</a><span> /</span>
+            <a href="./glossario.html">Glossário</a>
+        </nav>
+    </header>
+    <main>
+
+        <h1>Redes de Campo</h1>
+        <p class="sub">Redes e protocolos industriais baseados em pares de fios (Bloco B).</p>
+
+        <section>
+            <h3>Modbus RTU</h3>
+            <p>Protocolo serial simples e muito antigo, até hoje presente em medidores, inversores e controladores.</p>
+            <p class="aviso"><b>Em palavras simples:</b> É um chefe (mestre) conversando com vários ajudantes (escravos): o chefe pergunta e só o ajudante chamado responde.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Par trançado blindado em RS485 de 2 fios (ou RS232). Conexão por bornes, D-Sub 9 ou RJ45. Topologia de barramento linear.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>RS485 diferencial (fios A e B), codificação NRZ assíncrona (8N2 ou 8E1). Alimentação separada. Resistor de terminação de 120 Ω nas pontas e blindagem aterrada em um só ponto.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Mestre-escravo: só o mestre inicia. Até 247 escravos (32 por segmento). Quadro: endereço (1 byte), função (1 byte), dados e CRC-16; um silêncio de 3,5 caracteres marca o fim.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>De 1200 bps a 115,2 kbps (até 1 Mbps). Até 1200 m em baixa velocidade. Previsível pelo polling, mas sem tempo real estrito: o ciclo cresce com o número de escravos.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> campo e controle.</p>
+        </section>
+
+        <section>
+            <h3>Profibus DP</h3>
+            <p>Versão do Profibus para a automação de fábrica, rápida e com muitos dispositivos.</p>
+            <p class="aviso"><b>Em palavras simples:</b> Rede rápida que liga o CLP aos módulos da máquina. O direito de falar passa de mestre em mestre, como um bastão.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Par trançado blindado tipo A (cabo roxo). Conector D-Sub 9 pinos (pino 3 = B, pino 8 = A) ou M12. Barramento linear, com opção de fibra.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>RS485 com NRZ. Terminação ativa nas pontas e alimentação separada. Até 32 estações por segmento e 126 endereços. Blindagem aterrada nas duas pontas.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Token passing entre mestres e mestre-escravo com os escravos. Quadro: delimitador de início, tamanho, endereços de destino e origem, controle, dados, FCS e delimitador de fim (16h).</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>De 9,6 kbps a 12 Mbps. De 1200 m (9,6 kbps) a 100 m (12 Mbps). Determinístico, com ciclo na casa de poucos milissegundos.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> campo e controle.</p>
+        </section>
+
+        <section>
+            <h3>Profibus PA</h3>
+            <p>Versão do Profibus para a automação de processos, com instrumentos em áreas explosivas.</p>
+            <p class="aviso"><b>Em palavras simples:</b> Parente do DP feito para fábricas químicas e de petróleo: o mesmo par de fios leva dados e energia, e é seguro onde há risco de explosão.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Par trançado blindado tipo A. Conexão por bornes ou M12. Barramento ou árvore, ligado ao DP por um acoplador.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Padrão IEC 61158-2 com Manchester II e 31,25 kbps. Alimenta e transmite dados no mesmo par (9 a 32 V, cerca de 10 mA por instrumento). Segurança intrínseca pelo modelo FISCO.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Mesmo protocolo do DP: mestre-escravo com token entre mestres e o mesmo formato de quadro.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>31,25 kbps. Até 1900 m (cerca de 1000 m em área Ex). Determinístico, com ciclo mais lento por causa da velocidade baixa.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> campo, na parte de processos.</p>
+        </section>
+
+        <section>
+            <h3>HART e WirelessHART</h3>
+            <p>Dá comunicação digital a instrumentos 4-20 mA sem trocar a fiação.</p>
+            <p class="aviso"><b>Em palavras simples:</b> Aproveita o fio do sensor 4-20 mA e coloca uma conversa digital por cima, sem trocar a fiação. O WirelessHART faz o mesmo sem fio.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>HART: par trançado de 2 fios no laço de 4-20 mA, com bornes. Ponto a ponto ou multidrop (até 15 ou 63 instrumentos). WirelessHART: rádio, topologia mesh.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Sinal digital FSK Bell 202 (1200 Hz = 1 e 2200 Hz = 0, ±0,5 mA) sobre o 4-20 mA, que não altera a média do laço. O laço também alimenta o instrumento. WirelessHART usa IEEE 802.15.4 a 2,4 GHz, com AES-128.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Mestre-escravo com até 2 mestres. Quadro: preâmbulo, delimitador, endereço, comando, contador de bytes, status, dados e checksum (paridade longitudinal). WirelessHART usa TDMA com salto de canal.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>1200 bps no HART e 250 kbps no WirelessHART. Até cerca de 3000 m. Não determinístico: cerca de 2 transações por segundo.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> campo, para configuração e diagnóstico de instrumentos.</p>
+        </section>
+
+        <section>
+            <h3>Foundation Fieldbus (H1 e HSE)</h3>
+            <p>Rede digital de campo para processos, em que a malha de controle pode rodar nos próprios instrumentos. O H1 liga os instrumentos; o HSE (High Speed Ethernet) é a parte em Ethernet (100 Mbps ou 1 Gbps, RJ45, UDP/TCP/IP) que liga os segmentos H1 ao controle e à supervisão por meio de linking devices.</p>
+            <p class="aviso"><b>Em palavras simples:</b> Os instrumentos conversam entre si e até fazem o controle sozinhos. O HSE é a estrada rápida que junta os grupos.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Par trançado blindado tipo A, com bornes ou M12. Barramento ou árvore, até 32 dispositivos.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Manchester II a 31,25 kbps. Energia e dados no mesmo par (9 a 32 V). Segurança intrínseca por FISCO.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>LAS (Link Active Scheduler) agenda as transmissões cíclicas; as acíclicas usam token. Quadro: preâmbulo, delimitador, dados, CRC-16 e delimitador de fim.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>31,25 kbps. Até 1900 m (até 9,5 km com repetidores). Determinístico por agendamento.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> campo, na parte de processos.</p>
+        </section>
+
+        <section>
+            <h3>AS-i (Actuator Sensor Interface)</h3>
+            <p>Rede que liga sensores e atuadores simples com um único cabo, no último metro da fábrica.</p>
+            <p class="aviso"><b>Em palavras simples:</b> Um único cabo amarelo liga botões e sensores simples ao CLP, levando energia e dados juntos. A instalação é rápida.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Cabo chato amarelo de 2 fios e conexão por perfuração (vampiro) ou M12. Topologia livre: linha, árvore e estrela.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Modulação APM (Alternating Pulse Modulation) a 167 kbps. Dados e energia no mesmo cabo, com fonte AS-i de 30 V; o cabo preto traz 24 V auxiliares para atuadores.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Mestre-escravo por polling cíclico. Até 31 escravos (62 no modo A/B). Quadro de 14 bits, com bit de início, endereço, informação, paridade e fim.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>167 kbps. 100 m (até 300 m com repetidores). Determinístico: ciclo de 5 ms com 31 escravos e 10 ms com 62.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> sensores e atuadores.</p>
+        </section>
+
+        <section>
+            <h3>IO-Link</h3>
+            <p>Comunicação digital ponto a ponto com sensores e atuadores inteligentes.</p>
+            <p class="aviso"><b>Em palavras simples:</b> É como um USB para sensores: cabo comum, cada sensor numa porta, e dá para ler e configurar o sensor à distância.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Cabo comum não blindado de 3 ou 5 fios, conector M12 ou M8. Cada dispositivo vai em uma porta do mestre IO-Link (estrela).</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Nível de 24 V no pino C/Q. Alimenta o dispositivo (L+ e L-). Velocidades COM1 4,8 kbps, COM2 38,4 kbps e COM3 230,4 kbps. Mantém o modo normal liga/desliga (SIO).</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Mestre-escravo com M-sequences. A checagem é um checksum de 6 bits.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>Até 20 m por porta. Ciclo mínimo de 400 µs. Determinístico dentro da porta.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> sensores e atuadores.</p>
+        </section>
+
+        <section>
+            <h3>DeviceNet</h3>
+            <p>Rede de campo baseada em CAN, da família CIP.</p>
+            <p class="aviso"><b>Em palavras simples:</b> Rede robusta de 4 fios (2 de dados e 2 de energia), com ramais saindo de um cabo principal.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Cabo de 4 fios com blindagem (2 de sinal e 2 de 24 V). Cabo grosso (tronco) e fino (derivação). Conectores M12, mini-style e bornes. Topologia tronco e derivação.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>CAN diferencial (CAN_H e CAN_L). Alimenta os dispositivos com 24 V pelo barramento. Terminação de 120 Ω.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>CSMA/CD com arbitragem por bit (AMP). Quadro CAN: identificador de 11 bits, controle, dados de até 8 bytes e CRC-15, com CIP por cima.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>125, 250 e 500 kbps. Até 500 m a 125 kbps e 100 m a 500 kbps. Até 64 nós. Determinístico por prioridade.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> campo e controle.</p>
+        </section>
+
+        <section>
+            <h3>CANopen</h3>
+            <p>Protocolo de alto nível sobre CAN, muito usado em máquinas, veículos e motion.</p>
+            <p class="aviso"><b>Em palavras simples:</b> Vem dos carros (rede CAN). Quem tem a mensagem mais importante fala primeiro, por isso é muito confiável em máquinas.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Par trançado blindado (CAN_L e CAN_H, com GND opcional). D-Sub 9 (pino 2 = CAN_L, pino 7 = CAN_H), M12 ou bornes. Barramento linear.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>ISO 11898, diferencial, com NRZ e bit stuffing. Terminação de 120 Ω. A alimentação de 24 V pode ir no cabo (CiA 303).</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>CSMA/CD com arbitragem por bit (AMP), em que o identificador de menor valor vence. Quadro CAN: SOF, COB-ID (11 bits), RTR, tamanho, dados (0 a 8 bytes), CRC-15, ACK e EOF.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>10 kbps a 1 Mbps. 25 m a 1 Mbps e até 5000 m a 10 kbps. Até 127 nós. Determinístico por prioridade e mensagens SYNC.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> campo e controle.</p>
+        </section>
+
+        <section>
+            <h3>CC-Link</h3>
+            <p>Rede industrial da Mitsubishi, muito usada na Ásia.</p>
+            <p class="aviso"><b>Em palavras simples:</b> É a rede da Mitsubishi. Funciona como o Modbus RTU, mas bem mais rápida.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Cabo blindado de 3 fios (DA, DB, DG) mais shield, com bornes ou conector de 5 pinos. Barramento.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>RS485 com terminação nas pontas e alimentação separada.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Mestre-escravo por polling com broadcast. Quadro estilo HDLC: flag 7Eh, endereço, controle, dados, CRC-16 e flag. Até 64 estações.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>De 156 kbps a 10 Mbps. De 1200 m a 156 kbps até 100 m a 10 Mbps. Determinístico.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> campo e controle. A versão CC-Link IE usa Ethernet Gigabit.</p>
+        </section>
+
+
+    </main>
+    <footer>
+        <p>Trabalho prático de Redes Industriais</p>
+    </footer>
+</body>
+</html>

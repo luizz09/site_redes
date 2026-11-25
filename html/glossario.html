@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Glossário</title>
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="menu">
+        <label for="menu" class="hamb">&#9776; Menu</label>
+        <nav>
+            <a href="../index.html">Início</a><span> /</span>
+            <a href="./locais.html">Redes Locais</a><span> /</span>
+            <a href="./serial.html">Redes de Campo</a><span> /</span>
+            <a href="./ethernet.html">Ethernet Industrial</a><span> /</span>
+            <a href="./iiot.html">IIoT</a><span> /</span>
+            <a href="./comparativo.html">Comparativo</a><span> /</span>
+            <a class="atual" href="./glossario.html">Glossário</a>
+        </nav>
+    </header>
+    <main>
+
+        <h1>Glossário</h1>
+        <p class="sub">Os termos técnicos sem complicação.</p>
+
+        <section>
+            <h3>Termos do trabalho</h3>
+            <p>As palavras mais difíceis do site, explicadas de um jeito simples.</p>
+            <div class="grade">
+                <div class="item">
+                    <h4>Mestre-escravo</h4>
+                    <p>Um dispositivo (o mestre) manda em tudo: ele pergunta e os outros (escravos) só respondem quando chamados.</p>
+                </div>
+                <div class="item">
+                    <h4>Token passing</h4>
+                    <p>Um sinal especial (o token) passa de um mestre para outro. Só quem está com ele pode falar, como um bastão numa roda de conversa.</p>
+                </div>
+                <div class="item">
+                    <h4>CSMA/CD</h4>
+                    <p>Antes de falar, o equipamento escuta se o cabo está livre. Se dois falarem juntos (colisão), ambos param e tentam de novo.</p>
+                </div>
+                <div class="item">
+                    <h4>CSMA/CA</h4>
+                    <p>Parecido com o CSMA/CD, mas feito para o Wi-Fi: como não dá para ouvir enquanto fala, ele tenta evitar a colisão antes.</p>
+                </div>
+                <div class="item">
+                    <h4>Determinístico</h4>
+                    <p>Rede em que se sabe, com certeza, em quanto tempo a mensagem chega. Importante para máquinas que não podem atrasar.</p>
+                </div>
+                <div class="item">
+                    <h4>RS485</h4>
+                    <p>Jeito de mandar sinal por 2 fios usando a diferença de tensão entre eles. Resiste bem a ruído e vai longe.</p>
+                </div>
+                <div class="item">
+                    <h4>Sinal diferencial</h4>
+                    <p>O dado é a diferença de tensão entre dois fios. Se o ruído atinge os dois igual, a diferença não muda e o dado chega certo.</p>
+                </div>
+                <div class="item">
+                    <h4>Manchester</h4>
+                    <p>Código em que cada bit é uma mudança de nível no meio do pulso. Permite mandar o relógio junto com o dado.</p>
+                </div>
+                <div class="item">
+                    <h4>CRC / checksum</h4>
+                    <p>Um número calculado com os dados e enviado junto. Quem recebe refaz a conta: se não bater, houve erro.</p>
+                </div>
+                <div class="item">
+                    <h4>PoE</h4>
+                    <p>Power over Ethernet: o mesmo cabo de rede leva dados e energia para câmeras, pontos de acesso e outros.</p>
+                </div>
+                <div class="item">
+                    <h4>EMI</h4>
+                    <p>Interferência eletromagnética: ruído elétrico de motores e inversores que pode atrapalhar o sinal. Blindagem e aterramento ajudam.</p>
+                </div>
+                <div class="item">
+                    <h4>Segurança intrínseca (FISCO)</h4>
+                    <p>Limita tanto a energia no cabo que nem uma faísca consegue causar explosão. Usada em áreas classificadas.</p>
+                </div>
+                <div class="item">
+                    <h4>Topologia</h4>
+                    <p>O desenho da rede: barramento (uma linha), estrela (tudo num ponto central), anel, árvore ou malha (mesh).</p>
+                </div>
+                <div class="item">
+                    <h4>Terminação</h4>
+                    <p>Resistor nas pontas do cabo (geralmente 120 Ω) que evita reflexão do sinal e erros de leitura.</p>
+                </div>
+                <div class="item">
+                    <h4>4-20 mA</h4>
+                    <p>Sinal analógico em que 4 mA é o mínimo e 20 mA o máximo. Se cair a 0 mA, sabe-se que o fio rompeu.</p>
+                </div>
+                <div class="item">
+                    <h4>Publish/subscribe</h4>
+                    <p>Modelo em que quem tem dado publica num tópico e quem se interessou assina e recebe, sem ligação direta entre os dois.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <p>Trabalho prático de Redes Industriais</p>
+    </footer>
+</body>
+</html>

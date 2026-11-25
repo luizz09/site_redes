@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Ethernet Industrial</title>
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="menu">
+        <label for="menu" class="hamb">&#9776; Menu</label>
+        <nav>
+            <a href="../index.html">Início</a><span> /</span>
+            <a href="./locais.html">Redes Locais</a><span> /</span>
+            <a href="./serial.html">Redes de Campo</a><span> /</span>
+            <a class="atual" href="./ethernet.html">Ethernet Industrial</a><span> /</span>
+            <a href="./iiot.html">IIoT</a><span> /</span>
+            <a href="./comparativo.html">Comparativo</a><span> /</span>
+            <a href="./glossario.html">Glossário</a>
+        </nav>
+    </header>
+    <main>
+
+        <h1>Ethernet Industrial</h1>
+        <p class="sub">Redes e protocolos industriais que rodam sobre Ethernet (Bloco B).</p>
+
+        <section>
+            <h3>Profinet</h3>
+            <p>Padrão da Siemens e da PI, baseado em Ethernet.</p>
+            <p class="aviso"><b>Em palavras simples:</b> É a Ethernet da Siemens para fábrica, com prioridade para os dados de controle chegarem sempre no tempo certo.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Cabo Cat5e blindado (verde), RJ45, M12 D-coded ou fibra. Topologia em linha, estrela, árvore ou anel (MRP).</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Ethernet 100BASE-TX ou Gigabit, com isolação por transformador. Alimentação separada. Blindagem aterrada nas duas pontas.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Tempo real (RT) em quadros Ethernet com tipo 0x8892 e FrameID, ou IRT com TDMA. Quadro: dados cíclicos, contador de ciclo, data status e transfer status.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>100 Mbps ou 1 Gbps. 100 m entre nós. RT de 1 a 10 ms e IRT abaixo de 1 ms (até 31,25 µs). Determinístico.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> campo e controle, levando dados também à supervisão.</p>
+        </section>
+
+        <section>
+            <h3>Ethernet/IP</h3>
+            <p>Padrão da Rockwell, usa CIP sobre Ethernet comum.</p>
+            <p class="aviso"><b>Em palavras simples:</b> É a Ethernet da Rockwell. Aqui IP quer dizer Industrial Protocol, e não o IP da internet. Quem tem dado publica e quem precisa assina.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Cabo Cat5e ou Cat6 com RJ45 ou M12 D-coded. Estrela, linha ou anel (DLR).</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Ethernet padrão com PoE opcional. Alimentação separada.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>CSMA/CD com switch em full-duplex. CIP sobre TCP (porta 44818) e UDP (porta 2222), no modelo produtor-consumidor com multicast.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>10/100/1000 Mbps. 100 m por segmento. Não determinístico estrito (tempo real brando); CIP Sync melhora isso.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> controle e supervisão.</p>
+        </section>
+
+        <section>
+            <h3>EtherCAT</h3>
+            <p>Ethernet de altíssimo desempenho, em que um quadro passa por todos os nós.</p>
+            <p class="aviso"><b>Em palavras simples:</b> Imagine um trem que passa por todas as estações: cada módulo pega e deixa dados enquanto o trem passa. Por isso é muito rápido.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Cabo Cat5e, RJ45, M8 ou M12 D-coded, além de fibra. Linha, árvore, estrela ou anel (redundância).</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>100BASE-TX ou FX. Nos módulos, usa E-bus LVDS. Alimentação separada (o EtherCAT P leva energia no cabo).</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Mestre-escravo com processamento on the fly: cada escravo lê e escreve no quadro enquanto ele passa. Quadro Ethernet 0x88A4 com cabeçalho, datagramas, WKC e FCS.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>100 Mbps. 100 m entre nós e até 65535 nós. Ciclo abaixo de 100 µs e jitter menor que 1 µs. Determinístico.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> controle e campo, principalmente em motion.</p>
+        </section>
+
+        <section>
+            <h3>Modbus TCP</h3>
+            <p>O Modbus clássico levado para Ethernet.</p>
+            <p class="aviso"><b>Em palavras simples:</b> É o mesmo Modbus, só que dentro de um cabo de rede comum.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Cabo Cat5e e RJ45. Topologia em estrela.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Ethernet padrão. Alimentação separada.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Cliente-servidor sobre TCP, porta 502. O quadro tem o cabeçalho MBAP (ID da transação, ID do protocolo, tamanho e ID da unidade) mais a função e os dados. Não usa CRC do Modbus, pois o TCP e o FCS da Ethernet cuidam.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>10/100 Mbps. 100 m por segmento. Não determinístico.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> controle e supervisão.</p>
+        </section>
+
+
+    </main>
+    <footer>
+        <p>Trabalho prático de Redes Industriais</p>
+    </footer>
+</body>
+</html>

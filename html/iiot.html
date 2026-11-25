@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>IIoT e Integração</title>
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="menu">
+        <label for="menu" class="hamb">&#9776; Menu</label>
+        <nav>
+            <a href="../index.html">Início</a><span> /</span>
+            <a href="./locais.html">Redes Locais</a><span> /</span>
+            <a href="./serial.html">Redes de Campo</a><span> /</span>
+            <a href="./ethernet.html">Ethernet Industrial</a><span> /</span>
+            <a class="atual" href="./iiot.html">IIoT</a><span> /</span>
+            <a href="./comparativo.html">Comparativo</a><span> /</span>
+            <a href="./glossario.html">Glossário</a>
+        </nav>
+    </header>
+    <main>
+
+        <h1>IIoT e Integração</h1>
+        <p class="sub">Protocolos de camada alta que levam os dados da fábrica à supervisão e à nuvem (Bloco B).</p>
+
+        <section>
+            <h3>MQTT</h3>
+            <p>Protocolo leve de publicação e assinatura, feito para dispositivos simples e redes instáveis.</p>
+            <p class="aviso"><b>Em palavras simples:</b> Funciona como grupo de WhatsApp: quem tem informação envia para um tópico, e quem assinou recebe. É leve e ótimo para a nuvem.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Não define meio próprio: roda sobre TCP/IP em Ethernet (RJ45), Wi-Fi ou celular. Topologia em estrela, com um broker no centro.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Herda a camada elétrica da rede usada. A segurança vem do TLS (porta 8883; porta 1883 sem criptografia).</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Publish/subscribe por tópicos, com QoS 0, 1 e 2. Mensagem: cabeçalho fixo (tipo, flags e tamanho), cabeçalho variável e payload. A checagem de erros fica no TCP.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>Depende da rede, e não há limite de distância (funciona pela internet). Não determinístico.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> supervisão e integração IIoT/Nuvem.</p>
+        </section>
+
+        <section>
+            <h3>OPC UA</h3>
+            <p>Padrão para trocar dados entre sistemas de fabricantes diferentes, com segurança e modelo de informação.</p>
+            <p class="aviso"><b>Em palavras simples:</b> É um tradutor universal: máquinas de marcas diferentes passam a falar a mesma língua, com segurança.</p>
+            <details>
+                <summary>Detalhes técnicos</summary>
+                <div class="grade">
+                    <div class="item">
+                        <h4>Estrutura física</h4>
+                        <p>Roda sobre Ethernet (RJ45), fibra ou Wi-Fi. Topologia em estrela ou árvore, com clientes e servidores.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Interface elétrica</h4>
+                        <p>Herda a camada elétrica da rede usada. Usa certificados X.509, assinatura e criptografia.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Enlace e acesso ao meio</h4>
+                        <p>Cliente-servidor sobre TCP (opc.tcp, porta 4840) ou HTTPS, e publish/subscribe sobre UDP, MQTT ou TSN. Mensagem: cabeçalho, canal seguro, sequência e corpo em codificação binária.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Desempenho</h4>
+                        <p>Depende da rede, de Mbps a Gbps. Não determinístico por padrão; com TSN pode chegar a tempo real.</p>
+                    </div>
+                </div>
+            </details>
+            <p><b>Pirâmide da automação:</b> supervisão e integração com MES, ERP e nuvem.</p>
+        </section>
+
+
+    </main>
+    <footer>
+        <p>Trabalho prático de Redes Industriais</p>
+    </footer>
+</body>
+</html>

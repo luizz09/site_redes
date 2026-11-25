@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Comparativo</title>
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="menu">
+        <label for="menu" class="hamb">&#9776; Menu</label>
+        <nav>
+            <a href="../index.html">Início</a><span> /</span>
+            <a href="./locais.html">Redes Locais</a><span> /</span>
+            <a href="./serial.html">Redes de Campo</a><span> /</span>
+            <a href="./ethernet.html">Ethernet Industrial</a><span> /</span>
+            <a href="./iiot.html">IIoT</a><span> /</span>
+            <a class="atual" href="./comparativo.html">Comparativo</a><span> /</span>
+            <a href="./glossario.html">Glossário</a>
+        </nav>
+    </header>
+    <main>
+
+        <h1>Comparativo</h1>
+        <p class="sub">Todas as redes lado a lado.</p>
+
+        <section>
+            <h3>Resumo das tecnologias</h3>
+            <p>Compare meio, velocidade, distância, determinismo e nível na pirâmide.</p>
+            <table class="tabela">
+                    <tr><th>Rede</th><th>Meio</th><th>Taxa</th><th>Distância</th><th>Determinística</th><th>Nível</th></tr>
+                    <tr><td>Ethernet</td><td>UTP/STP, fibra</td><td>10 Mbps a 10 Gbps</td><td>100 m</td><td>Não</td><td>Controle e supervisão</td></tr>
+                    <tr><td>Wi-Fi</td><td>RF 2,4/5/6 GHz</td><td>11 Mbps a 9,6 Gbps</td><td>30 a 100 m</td><td>Não</td><td>Supervisão e IIoT</td></tr>
+                    <tr><td>Fibra óptica</td><td>Multimodo, monomodo</td><td>1 a 400 Gbps</td><td>300 m a 40 km</td><td>Depende do protocolo</td><td>Backbone e integração</td></tr>
+                    <tr><td>Modbus RTU</td><td>RS485</td><td>1,2 a 115,2 kbps</td><td>1200 m</td><td>Parcial</td><td>Campo e controle</td></tr>
+                    <tr><td>Profibus DP</td><td>RS485</td><td>9,6 kbps a 12 Mbps</td><td>1200 m a 100 m</td><td>Sim</td><td>Campo e controle</td></tr>
+                    <tr><td>Profibus PA</td><td>MBP</td><td>31,25 kbps</td><td>1900 m</td><td>Sim</td><td>Campo (processos)</td></tr>
+                    <tr><td>HART</td><td>4-20 mA + FSK</td><td>1,2 kbps</td><td>3000 m</td><td>Não</td><td>Campo</td></tr>
+                    <tr><td>WirelessHART</td><td>RF 2,4 GHz</td><td>250 kbps</td><td>Mesh</td><td>Sim (TDMA)</td><td>Campo</td></tr>
+                    <tr><td>Fieldbus H1</td><td>MBP</td><td>31,25 kbps</td><td>1900 m</td><td>Sim</td><td>Campo (processos)</td></tr>
+                    <tr><td>Fieldbus HSE</td><td>Ethernet</td><td>100 Mbps / 1 Gbps</td><td>100 m</td><td>Não</td><td>Controle e supervisão</td></tr>
+                    <tr><td>AS-i</td><td>Cabo amarelo</td><td>167 kbps</td><td>100 m</td><td>Sim</td><td>Sensores e atuadores</td></tr>
+                    <tr><td>IO-Link</td><td>3/5 fios, M12</td><td>Até 230,4 kbps</td><td>20 m</td><td>Sim</td><td>Sensores e atuadores</td></tr>
+                    <tr><td>DeviceNet</td><td>CAN 4 fios</td><td>125 a 500 kbps</td><td>500 m</td><td>Por prioridade</td><td>Campo e controle</td></tr>
+                    <tr><td>CANopen</td><td>CAN</td><td>10 kbps a 1 Mbps</td><td>25 m a 5 km</td><td>Por prioridade</td><td>Campo e controle</td></tr>
+                    <tr><td>CC-Link</td><td>RS485</td><td>156 kbps a 10 Mbps</td><td>1200 m a 100 m</td><td>Sim</td><td>Campo e controle</td></tr>
+                    <tr><td>Profinet</td><td>Ethernet</td><td>100 Mbps / 1 Gbps</td><td>100 m</td><td>Sim (RT/IRT)</td><td>Campo e controle</td></tr>
+                    <tr><td>Ethernet/IP</td><td>Ethernet</td><td>10/100/1000 Mbps</td><td>100 m</td><td>Não estrito</td><td>Controle e supervisão</td></tr>
+                    <tr><td>EtherCAT</td><td>Ethernet</td><td>100 Mbps</td><td>100 m entre nós</td><td>Sim</td><td>Controle e campo</td></tr>
+                    <tr><td>Modbus TCP</td><td>Ethernet</td><td>10/100 Mbps</td><td>100 m</td><td>Não</td><td>Controle e supervisão</td></tr>
+                    <tr><td>MQTT</td><td>Rede IP</td><td>Depende da rede</td><td>Sem limite</td><td>Não</td><td>Supervisão e nuvem</td></tr>
+                    <tr><td>OPC UA</td><td>Rede IP</td><td>Depende da rede</td><td>Sem limite</td><td>Não (TSN sim)</td><td>Supervisão e nuvem</td></tr>
+            </table>
+        </section>
+
+    </main>
+    <footer>
+        <p>Trabalho prático de Redes Industriais</p>
+    </footer>
+</body>
+</html>
