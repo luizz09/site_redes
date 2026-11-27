@@ -478,25 +478,34 @@ summary:hover{
     color: #FFFFFF;
 }
 
-.link{
-    padding: 0px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.linkgithub{
+    display: inline-block;
 }
 
-.linkgithub{
-    background-color: rgb(111, 73, 199);
+.link{
     display: inline-flex;
     align-items: center;
-    padding: 2px;
-    border-radius: 6px;
-    border: 1px solid rgb(150, 148, 148);
+    gap: 8px;
+    padding: 5px 14px 5px 7px;
+    background-color: #545454;
+    border: 1px solid #7D7D7D;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.linkgithub img{
-    width: 35px;
-    height: 35px;
+.link:hover{
+    background-color: #7D7D7D;
+    border-radius: 10px;
+}
+
+.link img{
+    width: 28px;
+    height: 28px;
     border-radius: 16px;
+}
+
+footer{
+    padding: 18px 0px;
 }
